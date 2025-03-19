@@ -12,7 +12,12 @@
         {% endif %}
 
         <form action="/boatDelete" method="POST">
-            <input type="number" name="id" placeholder="ID" class="input_field"> <br>
+            <input list="number" name="id" placeholder="Enter an ID" class="input_field">
+            <datalist id="number">
+                {% for boat in boats %}
+                    <option value='{{boat.id}}'>{{boat.id}}</option>
+                {% endfor %}
+            </datalist> <br>
             <input type="submit" value="Submit" class="input_submit">
         </form>
     </div>
