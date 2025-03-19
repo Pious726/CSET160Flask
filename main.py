@@ -35,7 +35,7 @@ def getBoatForDelete():
 @app.route('/boatDelete', methods=["POST"])
 def deleteBoat():
     try:
-        conn.execute(text('delete from boats where id = '))
+        conn.execute(text('delete from boats where id = :id'), request.form)
         return render_template('boat_delete.html', error = None, success = "Successful")
     except:
         return render_template('boat_delete.html', error = "Failed", success = None)
