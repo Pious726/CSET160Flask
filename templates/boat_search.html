@@ -12,8 +12,18 @@
             <h2>{{success}}</h2>
         {% endif %}
 
+        {% if boat %}
+            <ul>
+                <li>ID: {{boat.id}}</li>
+                <li>Boat Name: {{boat.name}}</li>
+                <li>Boat Type: {{boat.type}}</li>
+                <li>Owner ID: {{boat.owner_id}}</li>
+                <li>Rental Price: ${{boat.rental_price}}</li>
+            </ul>    
+        {% endif %}
+
         <form action="/boatSearch" method="POST">
-            <input type="number" name="id" placeholder="ID" class="input_field"> <br>
+            <input type="number" name="id" placeholder="Enter an ID" class="input_field"> <br>
             <input type="submit" value="Submit" class="input_submit">
         </form>
     </div>
