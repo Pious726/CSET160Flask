@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block body %}
-    <h1>Boat Creation</h1>
+    <h1>Boat Updater</h1>
+    <h2>Enter the ID of the boat you want to update. Then enter the values to change.</h2>
     <div class="body">
 
         {% if error %}
@@ -11,7 +12,7 @@
             <h2>{{success}}</h2>
         {% endif %}
 
-        <form action="/boatCreate" method="POST">
+        <form action="/boatUpdate" method="POST">
             <input type="number" name="id" placeholder="ID" class="input_field"> <br>
             <input type="text" name="name" placeholder="Boat name" class="input_field"> <br>
             <input type="text" name="type" placeholder="Boat type" class="input_field"> <br>
