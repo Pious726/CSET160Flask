@@ -2,6 +2,7 @@
 {% block body %}
 
     {%for boat in boats %}
+    <div class="boat-card">
         <ul>
             <li>{{boat[0]}}</li>
             <li>{{boat[1]}}</li>
@@ -9,6 +10,7 @@
             <li>{{boat[3]}}</li>
             <li>{{boat[4]}}</li>
         </ul>
+    </div>
     {%endfor%}
 
 

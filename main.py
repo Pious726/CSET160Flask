@@ -24,12 +24,49 @@ def getBoat():
 def createBoat():
     try:
         conn.execute(text('insert into boats values(:id, :name, :type, :owner_id, :rental_price)'), request.form)
+        conn.commit()
         return render_template('boat_create.html', error = None, success = "Successful")
     except:
         return render_template('boat_create.html', error = "Failed", success = None)
 
+@app.route('/boatDelete', methods=["GET"])
+def getBoatForDelete():
+    return render_template('boat_delete.html')
 
+@app.route('/boatDelete', methods=["POST"])
+def deleteBoat():
+    try:
+        conn.execute(text('delete from boats where id = :id'), request.form)
+        conn.commit()
+        return render_template('boat_delete.html', error = None, success = "Successful")
+    except:
+        return render_template('boat_delete.html', error = "Failed", success = None)
 
+@app.route('/boatSearch', methods=["GET"])
+def getBoatForSearch():
+    return render_template('boat_search.html')
+
+@app.route('/boatSearch', methods=["POST"])
+def searchBoat():
+    try:
+        search = conn.execute(text('select * from boats where id = :id'), request.form).fetchone()
+        return render_template('boat_search.html', boat = search, error = None, success = "Successful")
+    except:
+        return render_template('boat_search.html', boat = None, error = "Failed", success = None)
+
+@app.route('/boatUpdate', methods=["GET"])
+def getBoatForUpdate():
+    return render_template('boat_update.html')
+
+@app.route('/boatUpdate', methods=["POST"])
+def updateBoat():
+    try:
+        conn.execute(text('update boats set name = :name, type = :type, owner_id = :owner_id, rental_price = :rental_price where id = :id'), request.form)
+        conn.commit()
+        return render_template('boat_update.html', error = None, success = "Successful")
+    except:
+        return render_template('boat_update.html', error = "Failed", success = None)
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
