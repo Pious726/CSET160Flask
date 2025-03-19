@@ -31,7 +31,8 @@ def createBoat():
 
 @app.route('/boatDelete', methods=["GET"])
 def getBoatForDelete():
-    return render_template('boat_delete.html')
+    boats = conn.execute(text('select * from boats')).fetchall()
+    return render_template('boat_delete.html', boats=boats)
 
 @app.route('/boatDelete', methods=["POST"])
 def deleteBoat():
@@ -44,7 +45,8 @@ def deleteBoat():
 
 @app.route('/boatSearch', methods=["GET"])
 def getBoatForSearch():
-    return render_template('boat_search.html')
+    boats = conn.execute(text('select id from boats')).fetchall()
+    return render_template('boat_search.html', boats=boats)
 
 @app.route('/boatSearch', methods=["POST"])
 def searchBoat():
@@ -56,7 +58,8 @@ def searchBoat():
 
 @app.route('/boatUpdate', methods=["GET"])
 def getBoatForUpdate():
-    return render_template('boat_update.html')
+    boats = conn.execute(text('select * from boats')).fetchall()
+    return render_template('boat_update.html', boats=boats)
 
 @app.route('/boatUpdate', methods=["POST"])
 def updateBoat():

@@ -14,7 +14,12 @@
         {% endif %}
 
         <form action="/boatUpdate" method="POST">
-            <input type="number" name="id" placeholder="ID" class="input_field"> <br>
+            <input list="number" name="id" placeholder="Enter an ID" class="input_field">
+            <datalist id="number">
+                {% for boat in boats %}
+                    <option value='{{boat.id}}'>{{boat.id}}</option>
+                {% endfor %}
+            </datalist> <br>
             <input type="text" name="name" placeholder="Boat name" class="input_field"> <br>
             <input type="text" name="type" placeholder="Boat type" class="input_field"> <br>
             <input type="number" name="owner_id" placeholder="Owner ID" class="input_field"> <br>
