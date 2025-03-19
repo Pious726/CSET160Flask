@@ -48,12 +48,22 @@ def getBoatForSearch():
 def searchBoat():
     try:
         conn.execute(text('select * from boats where id = :id'), request.form)
-        return render_template('boat_search.html')
+        return render_template('boat_search.html', error = None, success = "Successful")
     except:
         return render_template('boat_search.html', error = "Failed", success = None)
 
+@app.route('/boatUpdate', methods=["GET"])
+def getBoatForSearch():
+    return render_template('boat_update.html')
 
-
+@app.route('/boatUpdate', methods=["POST"])
+def updateBoat():
+    try:
+        conn.execute(text(''), request.form)
+        return render_template('boat_update.html', error = None, success = "Successful")
+    except:
+        return render_template('boat_update.html', error = "Failed", success = None)
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
