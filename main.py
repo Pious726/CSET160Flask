@@ -53,7 +53,7 @@ def searchBoat():
         return render_template('boat_search.html', error = "Failed", success = None)
 
 @app.route('/boatUpdate', methods=["GET"])
-def getBoatForSearch():
+def getBoatForUpdate():
     return render_template('boat_update.html')
 
 @app.route('/boatUpdate', methods=["POST"])
