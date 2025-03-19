@@ -24,6 +24,7 @@ def getBoat():
 def createBoat():
     try:
         conn.execute(text('insert into boats values(:id, :name, :type, :owner_id, :rental_price)'), request.form)
+        conn.commit()
         return render_template('boat_create.html', error = None, success = "Successful")
     except:
         return render_template('boat_create.html', error = "Failed", success = None)
@@ -36,6 +37,7 @@ def getBoatForDelete():
 def deleteBoat():
     try:
         conn.execute(text('delete from boats where id = :id'), request.form)
+        conn.commit()
         return render_template('boat_delete.html', error = None, success = "Successful")
     except:
         return render_template('boat_delete.html', error = "Failed", success = None)
