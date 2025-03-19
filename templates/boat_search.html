@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>Boat Search</h1>
+    <div class="body">
+
+        {% if error %}
+            <h2>{{error}}</h2>
+        {% endif %}
+
+        {% if success %}
+            <h2>{{success}}</h2>
+        {% endif %}
+
+        <form action="/boatDelete" method="POST">
+            <input type="number" name="id" placeholder="ID" class="input_field"> <br>
+            <input type="submit" value="Submit" class="input_submit">
+        </form>
+    </div>
+{% endblock %}

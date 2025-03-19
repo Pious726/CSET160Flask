@@ -40,6 +40,19 @@ def deleteBoat():
     except:
         return render_template('boat_delete.html', error = "Failed", success = None)
 
+@app.route('/boatSearch', methods=["GET"])
+def getBoatForSearch():
+    return render_template('boat_search.html')
+
+@app.route('/boatSearch', methods=["POST"])
+def searchBoat():
+    try:
+        conn.execute(text('select * from boats where id = :id'), request.form)
+        return render_template('boat_search.html')
+    except:
+        return render_template('boat_search.html', error = "Failed", success = None)
+
+
 
 
 if __name__ == '__main__':
