@@ -29,7 +29,7 @@ def createBoat():
         return render_template('boat_create.html', error = "Failed", success = None)
 
 @app.route('/boatDelete', methods=["GET"])
-def getBoat2():
+def getBoatForDelete():
     return render_template('boat_delete.html')
 
 @app.route('/boatDelete', methods=["POST"])
