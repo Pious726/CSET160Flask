@@ -28,6 +28,17 @@ def createBoat():
     except:
         return render_template('boat_create.html', error = "Failed", success = None)
 
+@app.route('/boatDelete', methods=["GET"])
+def getBoat2():
+    return render_template('boat_delete.html')
+
+@app.route('/boatDelete', methods=["POST"])
+def deleteBoat():
+    try:
+        conn.execute(text('delete from boats where id = '))
+        return render_template('boat_delete.html', error = None, success = "Successful")
+    except:
+        return render_template('boat_delete.html', error = "Failed", success = None)
 
 
 
