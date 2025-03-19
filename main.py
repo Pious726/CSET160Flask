@@ -62,6 +62,7 @@ def getBoatForUpdate():
 def updateBoat():
     try:
         conn.execute(text('update boats set name = :name, type = :type, owner_id = :owner_id, rental_price = :rental_price where id = :id'), request.form)
+        conn.commit()
         return render_template('boat_update.html', error = None, success = "Successful")
     except:
         return render_template('boat_update.html', error = "Failed", success = None)
