@@ -55,6 +55,7 @@ header a{
 .body{
     margin: auto;
 }
+
 .input_field {
   width: 100%;
   padding: 12px 20px;
@@ -78,6 +79,39 @@ header a{
 
 .input_submit:hover {
   background-color: #45a049;
+}
+
+.boat-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    margin: 0 auto;
+}
+
+.boat-card {
+    background-color: #fff;
+    width: 30%;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.boat-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.boat-card ul li {
+    margin: 5px 0;
+    font-size: 16px;
 }
 
 /* FOOTER */

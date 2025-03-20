@@ -1,17 +1,18 @@
 {%extends 'base.html'%}
 {% block body %}
-
-    {%for boat in boats %}
-    <div class="boat-card">
-        <ul>
-            <li>{{boat[0]}}</li>
-            <li>{{boat[1]}}</li>
-            <li>{{boat[2]}}</li>
-            <li>{{boat[3]}}</li>
-            <li>{{boat[4]}}</li>
-        </ul>
-    </div>
-    {%endfor%}
-
-
+        <h1>Boats for Rent!</h1>
+        <div class="boat-grid">
+            {%for boat in boats %}
+                <div class="boat-card">
+                    <ul>
+                        <li>Boat ID: {{boat[0]}}</li>
+                        <li>Name: {{boat[1]}}</li>
+                        <li>Boat Type: {{boat[2].title()}}</li>
+                        <li>Owner ID: {{boat[3]}}</li>
+                        <li>Rental Price: {{boat[4]}}</li>
+                    </ul>
+                    <button class="rent-button">Rent Now!</button>
+                </div>
+            {%endfor%}
+        </div>
 {% endblock %}
